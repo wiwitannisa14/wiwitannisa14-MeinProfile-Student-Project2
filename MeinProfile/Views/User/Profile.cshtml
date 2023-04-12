@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MeinProfile.Models.AppUser
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1 class="text-center">Profilku</h1>
+
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Fullname)</td>
+            <td>@Html.DisplayFor(model => model.Fullname)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.City)</td>
+            <td>@Html.DisplayFor(model => model.City)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Image")</td>
+            <td><img src="/upload/@Url.Content(Model.Path)" width="100" height="100" /></td>
+        </tr>
+    </table>
+</div>
+
+<br />
+<div style="text-align:center;">
+    <button type="button" onclick="location.href='@Url.Action("Edit", new { id = Model.Id })'" class="btn btn-primary btn-mt-2">Edit</button>
+</div>
+<br />
+<div style="text-align:center;">
+    <button type="button" onclick="location.href='@Url.Action("People", new { id = Model.Id })'" class="btn btn-primary btn-mt-2">Other People</button>
+</div>
